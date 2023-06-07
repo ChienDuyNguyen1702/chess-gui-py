@@ -13,7 +13,6 @@ class Piece:
     def move(self, board, square, force=False):
         for i in board.squares:
             i.highlight = False
-        # print(PositionMap[self.x]+""+str(self.y+1), end=" -> ")
         currentX = self.x
         currentY = self.y
         if square in self.get_valid_moves(board) or force:
@@ -24,7 +23,7 @@ class Piece:
             square.occupying_piece = self
             board.selected_piece = None
             self.has_moved = True
-            print(PositionMap[currentX]+""+str(currentY+1)+" -> "+PositionMap[self.x]+""+str(self.y+1))
+            print(PositionMap[currentX]+""+str(currentY+1)+" -> "+PositionMap[self.x]+""+str(self.y+1)) # print log every moves
             # Pawn promotion
             if self.notation == ' ':
                 if self.y == 0 or self.y == 7:
